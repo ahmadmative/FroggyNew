@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './Subjects.css'
-// Individual Timeline Item Component
+import "./Subjects.css";
+
 const TimelineItem = ({ text, date }) => (
   <div className="timeline-item">
     <div className="timeline-dot"></div>
@@ -11,7 +11,6 @@ const TimelineItem = ({ text, date }) => (
   </div>
 );
 
-// Subject Card Component
 const SubjectCard = ({ subject, index, totalCards }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -67,9 +66,9 @@ const SubjectCard = ({ subject, index, totalCards }) => {
       style={cardStyle}
     >
       <div className="subject-header">
-        <h3 className="text-3xl font-semibold mb-5">{subject.title}</h3>
-        <p className="quote text-base mb-2">{subject.quote}</p>
-        <p className="author text-sm mb-6">{subject.author}</p>
+        <h3>{subject.title}</h3>
+        <p className="quote">{subject.quote}</p>
+        <p className="author">{subject.author}</p>
         <button className="view-more">View more</button>
       </div>
 
@@ -82,7 +81,6 @@ const SubjectCard = ({ subject, index, totalCards }) => {
   );
 };
 
-// Main Subjects Component
 const Subjects = () => {
   const subjects = [
     {
@@ -105,7 +103,7 @@ const Subjects = () => {
           date: "Term 3, 2024",
         },
       ],
-      color: "#1B4D3E", // Darker green for English
+      color: "#1B4D3E",
     },
     {
       id: "biology",
