@@ -1,0 +1,145 @@
+.holistic-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.holistic-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.content-side h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.content-side h3 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.content-side h3 span {
+    color: #45B454;
+}
+
+.approach-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.approach-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.bullet-point {
+    width: 8px;
+    height: 8px;
+    background-color: #45B454;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-rows: 200px 250px;
+    gap: 20px;
+    height: auto;
+}
+
+.grid-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 200px;
+}
+
+.bottom-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.bottom-left, .bottom-right {
+    height: 250px;
+}
+
+.bottom-left {
+    grid-column: 1 / 2;
+}
+
+.bottom-right {
+    grid-column: 2 / 3;
+}
+
+@media (max-width: 992px) {
+    .holistic-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .image-grid {
+        grid-template-rows: 180px 200px;
+    }
+
+    .top {
+        height: 180px;
+    }
+
+    .bottom-left, .bottom-right {
+        height: 200px;
+    }
+
+    .content-side h2,
+    .content-side h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .holistic-section {
+        padding: 60px 0;
+    }
+
+    .image-grid {
+        grid-template-rows: 150px 180px;
+    }
+
+    .top {
+        height: 150px;
+    }
+
+    .bottom-left, .bottom-right {
+        height: 180px;
+    }
+
+    .approach-list li {
+        font-size: 14px;
+    }
+} 

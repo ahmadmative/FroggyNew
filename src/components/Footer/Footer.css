@@ -1,0 +1,135 @@
+/* Footer Styles */
+.footer {
+    background-color: #0D6B4E;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-left {
+    max-width: 300px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: auto;
+}
+
+.footer-logo h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.address {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-column h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-left {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-links {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+} 

@@ -1,0 +1,204 @@
+.expect-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.expect-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #333;
+}
+
+.main-title span {
+    color: #45B454;
+}
+
+.expect-content {
+    display: grid;
+    grid-template-columns: minmax(auto, 600px) 1fr;
+    gap: 100px;
+    position: relative;
+}
+
+/* Left side container */
+.left-content {
+    position: relative;
+    width: 100%;
+}
+
+/* Image and buttons container */
+.class-container {
+    display: flex;
+    gap: 5px;  /* Small gap between image and buttons */
+    position: relative;
+}
+
+.image-wrapper {
+    flex: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 400px;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slider-image.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.image-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background-color: #00523C;
+    color: white;
+    font-size: 14px;
+}
+
+/* Course buttons styling */
+.course-buttons {
+    display: flex;
+    flex-direction: row;
+    height: 400px; /* Match exactly with image-wrapper height */
+    gap: 5px;
+}
+
+.course-btn {
+    width: 40px;
+    height: 100%;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+    border-radius: 7px;
+}
+
+.course-btn.monday {
+    background-color: #00523C;
+}
+
+.course-btn.saturday {
+    background-color: #45B454;
+}
+
+.course-btn.custom {
+    background-color: #666666;
+}
+
+.course-btn:hover {
+    opacity: 0.9;
+}
+
+/* Right content */
+.right-content {
+    padding-left: 20px;
+    max-width: 600px;
+}
+
+.about-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.expect-list h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about-section p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.expect-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.expect-list li {
+    color: #666;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 992px) {
+    .expect-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .right-content {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .expect-section {
+        padding: 60px 0;
+    }
+    
+    .image-wrapper {
+        height: 300px;
+    }
+    
+    .course-buttons {
+        height: 300px; /* Match with image-wrapper height in mobile view */
+    }
+    
+    .course-btn {
+        width: 30px;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .image-label {
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    .left-content {
+        padding-right: 60px;
+    }
+} 

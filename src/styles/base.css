@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #0D6B4E;
+    --secondary-color: #F8B76B;
+    --text-color: #333333;
+    --background-light: #F5F5F5;
+    --white: #FFFFFF;
+
+    /* Breakpoints */
+    --mobile: 480px;
+    --tablet: 768px;
+    --laptop: 1024px;
+    --desktop: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Global responsive container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Global responsive text */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px !important;
+    }
+    h2 {
+        font-size: 24px !important;
+    }
+    h3 {
+        font-size: 20px !important;
+    }
+    p {
+        font-size: 14px !important;
+    }
+}
+
+/* Hide scrollbar but allow scrolling */
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+    a, button {
+        cursor: default;
+    }
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+} 

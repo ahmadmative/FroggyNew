@@ -1,0 +1,149 @@
+.subjects-section {
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+.subjects-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.subject-card {
+    position: sticky;
+    top: 20%;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    transition: transform 0.8s ease-out, margin-top 0.8s ease-out;
+    transform-origin: center top;
+    z-index: 1;
+    will-change: transform, margin-top;
+}
+
+.subject-card.sticky {
+    opacity: 0.98;
+}
+
+.subject-card + .subject-card {
+    transition: margin-top 0.8s ease-out;
+}
+
+/* Ensure proper stacking context */
+.subject-card:nth-child(1) { z-index: 6; }
+.subject-card:nth-child(2) { z-index: 5; }
+.subject-card:nth-child(3) { z-index: 4; }
+.subject-card:nth-child(4) { z-index: 3; }
+.subject-card:nth-child(5) { z-index: 2; }
+.subject-card:nth-child(6) { z-index: 1; }
+
+.subject-header {
+    max-width: 400px;
+}
+
+.subject-header h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.quote {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.author {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.view-more {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-more:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.subject-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.subject-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -35px;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+@media (max-width: 992px) {
+    .subject-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .subject-header {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .subjects-section {
+        padding: 60px 0;
+    }
+
+    .subject-card {
+        padding: 30px;
+    }
+
+    .subject-header h3 {
+        font-size: 24px;
+    }
+} 

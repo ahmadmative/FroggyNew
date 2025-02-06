@@ -1,0 +1,351 @@
+.senior-leap {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.senior-leap-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.senior-leap-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.senior-leap-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.senior-leap-header p {
+    font-size: 18px;
+    color: #666;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.class-card {
+    position: relative;
+    background: #F8F8F8;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Circle backgrounds for main cards - grouped tightly in top-right */
+.class-card::before,
+.class-card::after,
+.class-card .circle-1,
+.class-card .circle-2 {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.9;
+    background-color: #E5E5E5;
+}
+
+/* Circle positioning - tight group in top-right */
+.class-card::before {
+    top: 20px;
+    right: 48px;
+}
+
+.class-card::after {
+    top: 20px;
+    right: 20px;
+}
+
+.class-card .circle-1 {
+    top: 48px;
+    right: 48px;
+}
+
+.class-card .circle-2 {
+    top: 48px;
+    right: 20px;
+}
+
+/* Only the first (left) circle gets the unique color for each card */
+.class-card:nth-child(1)::before {
+    background-color: #0D6B4E;
+}
+
+.class-card:nth-child(2)::before {
+    background-color: #B4E86C;
+}
+
+.class-card:nth-child(3)::before {
+    background-color: #FF8989;
+}
+
+.class-card:nth-child(4)::before {
+    background-color: #45B4B4;
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    color: #0D6B4E;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.card-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.price-section {
+    margin-bottom: 20px;
+}
+
+.dollar {
+    font-size: 20px;
+    vertical-align: top;
+    color: #333;
+}
+
+.amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.period {
+    color: #666;
+    font-size: 16px;
+}
+
+.timing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.clock-icon {
+    font-size: 18px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.check-icon {
+    color: #45B454;
+    font-weight: bold;
+}
+
+.enroll-button {
+    width: 100%;
+    padding: 12px;
+    background: #45B454;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+    background: #3a9746;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .classes-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .classes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .senior-leap {
+        padding: 60px 0;
+    }
+
+    .senior-leap-header h2 {
+        font-size: 24px;
+    }
+
+    .senior-leap-header p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .classes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .class-card {
+        padding: 20px;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+.additional-classes {
+    margin-top: 60px;
+}
+
+.classes-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.simple-card {
+    position: relative;
+    background: #F8F8F8;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.simple-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Single circle for simple cards */
+.simple-card::before {
+    content: '';
+    position: absolute;
+    width: 24px;  /* Made circle larger */
+    height: 24px;
+    border-radius: 50%;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* Remove other circles */
+.simple-card::after,
+.simple-card .circle-1,
+.simple-card .circle-2 {
+    display: none;
+}
+
+/* Individual circle colors */
+.simple-card:nth-child(1)::before {
+    background-color: #FFD699; /* Biology */
+}
+
+.simple-card:nth-child(2)::before {
+    background-color: #45B454; /* Business Studies */
+}
+
+.simple-card:nth-child(3)::before {
+    background-color: #CCCCCC; /* SOR II */
+}
+
+.simple-card:nth-child(4)::before {
+    background-color: #B4E86C; /* Chemistry */
+}
+
+.simple-card:nth-child(5)::before {
+    background-color: #E5CCFF; /* Physics */
+}
+
+/* Ensure card content stays above the circles */
+.card-header, .price-section, .timing, .features-list, .enroll-button,
+.simple-card h3, .simple-card p, .price-simple, .simple-card .enroll-button {
+    position: relative;
+    z-index: 2;
+}
+
+.simple-card h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.simple-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.price-simple {
+    margin: 15px 0;
+}
+
+.price-simple .dollar {
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.price-simple .amount {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.price-simple .period {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Update responsive styles */
+@media (max-width: 1200px) {
+    .classes-grid-simple {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .classes-grid-simple {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .classes-grid-simple {
+        grid-template-columns: 1fr;
+    }
+} 
