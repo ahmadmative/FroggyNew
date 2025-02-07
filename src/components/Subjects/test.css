@@ -1,0 +1,286 @@
+.container {
+  width: 100%;
+}
+
+:root {
+  --cards: 7;
+  --cardHeight: 85vh;  /* Updated to match your design */
+  --cardTopPadding: 7em;
+  --cardMargin: 0vw;
+}
+
+#cards {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+  margin-bottom: var(--cardMargin);
+  width: 100%;
+}
+
+.card {
+  position: sticky;
+  top: 0vh; /* Updated to match your 25vh requirement */
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+  width: 100%;
+}
+
+.card-body {
+  box-sizing: border-box;
+  padding: 2px 0;  /* Match your original padding */
+  height: var(--cardHeight);
+  width: 100%;
+  object-fit: cover;
+  background-size: cover;
+  color: white;
+}
+
+.subject-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.left-content {
+  flex: 0 0 45%;
+  padding-top: 40px;
+}
+
+.left-content h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.info-text {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.quote-text {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+
+.quote-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 60px;
+  height: 60px;
+  background-image: url('../../assets/quote.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+}
+
+.quote-line {
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.author {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.enroll-button {
+  padding: 15px 25px;
+  background: white;
+  color: #1B4D3E;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 30%;
+  transition: transform 0.2s ease;
+}
+
+.enroll-button:hover {
+  transform: scale(1.05);
+}
+
+/* Timeline styles */
+.tl-container {
+  flex: 0 0 50%;
+  position: relative;
+  padding-top: 40px;
+  margin-top: 60px;
+}
+
+.tl-line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 4px;
+  height: calc(100% - 5vh);
+  background: rgba(255, 255, 255, 0.684);
+}
+
+.tl-items {
+  position: relative;
+  z-index: 2;
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 100px;
+  display: flex;
+  min-height: 80px;
+}
+
+.tl-date {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 16px;
+  white-space: nowrap;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.tl-item:nth-child(odd) .tl-date {
+  right: calc(50% + 20px);
+}
+
+.tl-item:nth-child(even) .tl-date {
+  left: calc(50% + 20px);
+}
+
+.tl-dot {
+  position: absolute;
+  color: black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+
+
+.tl-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 12px;
+  width: 45%;
+  position: relative;
+}
+
+.tl-item:nth-child(odd) .tl-box {
+  margin-left: calc(50% + 40px);
+}
+
+.tl-item:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.tl-item:nth-child(even) .tl-box {
+  margin-right: calc(50% + 30px);
+}
+
+/* Add arrow indicators for timeline boxes */
+.tl-item:nth-child(odd) .tl-box::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgba(255, 255, 255, 0.1);
+}
+
+.tl-item:nth-child(even) .tl-box::before {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Background images with proper z-indexing */
+#card1 .card-body { z-index: 7; background-image: url('../../assets/Subtractg.png'); }
+#card2 .card-body { z-index: 6; background-image: url('../../assets/Subtract2.png'); }
+#card3 .card-body { z-index: 5; background-image: url('../../assets/Subtract3.png'); }
+#card4 .card-body { z-index: 4; background-image: url('../../assets/Subtract4.png'); }
+#card5 .card-body { z-index: 3; background-image: url('../../assets/Subtract5.png'); }
+#card6 .card-body { z-index: 2; background-image: url('../../assets/Subtract6.png'); }
+#card7 .card-body { z-index: 1; background-image: url('../../assets/Subtract.png'); }
+
+/* Background images with proper z-indexing */
+#card1 .card-body .tl-dot { background-color: #1B4D3E; }
+#card2 .card-body .tl-dot { background-color: #e57373; }
+#card3 .card-body .tl-dot { background-color: #f2ab49; }
+#card4 .card-body .tl-dot { background-color: #8bd4ab; }
+#card5 .card-body .tl-dot { background-color: #a7ddea; }
+#card6 .card-body .tl-dot { background-color: #b1a1ed; }
+#card7 .card-body .tl-dot { background-color: #e57373; }
+
+/* keep h1 of card 1,2,3,7 white */
+#card1 .card-body h2,
+#card2 .card-body h2,
+#card3 .card-body h2,
+#card7 .card-body h2 {
+  color: white;
+}
+
+/* keep h1 of card 4,5,6 dark blue */
+#card4 .card-body h2,
+#card5 .card-body h2,
+#card6 .card-body h2 {
+  color: #1B4D3E;
+}
+
+
+
+@media (max-width: 1024px) {
+  .subject-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .left-content,
+  .tl-container {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    padding: 40px 20px;
+  }
+
+  .left-content h2 {
+    font-size: 32px;
+  }
+
+  .info-text,
+  .quote-line {
+    font-size: 18px;
+  }
+}

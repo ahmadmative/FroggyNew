@@ -20,11 +20,19 @@
     padding: 0 40px;
 }
 
+.testimonial-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial-track {
+    display: flex;
+    width: 100%;
+}
+
 .testimonial-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    flex: 0 0 100%;
     width: 100%;
 }
 

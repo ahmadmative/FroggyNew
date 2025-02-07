@@ -80,16 +80,15 @@ nav {
 }
 
 .hero-container {
-    max-width: 1200px;
+  
     margin: 0 auto;
     position: relative;
-    padding: 40px 20px;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+ 
 }
 
 .hero-content h1 {
@@ -218,19 +217,7 @@ nav {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Testimonials */
-.testimonials {
-    padding: 5rem 5%;
-    background-color: var(--white);
-}
 
-.testimonial-slider {
-    margin-top: 3rem;
-    display: flex;
-    overflow-x: auto;
-    gap: 2rem;
-    padding: 1rem;
-}
 
 /* Contact Form */
 .contact {
@@ -557,7 +544,7 @@ footer {
 /* Desktop */
 @media (min-width: 1025px) {
     section {
-        padding: 100px 0;
+     
     }
 }
 

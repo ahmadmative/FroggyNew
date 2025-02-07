@@ -1,59 +1,89 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.css';
-import froggyLogo from '../../assets/froggylogo.png';
+// Footer.jsx
+import React from "react";
+import "./Footer.css";
+import { Linkedin, Facebook, Instagram, Store } from "lucide-react";
+import Logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-left">
-          <div className="footer-logo">
-            <img src={froggyLogo} alt="Froggy Tuition Centre" />
-            <h2>froggy<br />TUITION CENTRE</h2>
-          </div>
+      <div className="footer-content">
+        {/* Logo Section */}
+        <div className="footer-logo-section">
+          <img src={Logo} alt="Froggy Tuition Centre" className="footer-logo" />
+
           <p className="address">
-            Level 1/ 372 Chapel Rd, Bankstown NSW 2200 (Entrance is from rear car Park road)
+            Level 1/ 372 Chapel Rd , Bankstown NSW 2200 (Entrance is from rear
+            on Kitchener Pde
           </p>
         </div>
 
-        <div className="footer-links">
-          <div className="footer-column">
-            <h3>Company</h3>
-            <ul>
-              <li><Link to="/programs">Programs</Link></li>
-              <li><Link to="/about-us">About Us</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/enroll">Enroll with Froggy</Link></li>
-            </ul>
-          </div>
+        {/* Company Section */}
+        <div className="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li>
+              <a href="/programs">Programs</a>
+            </li>
+            <li>
+              <a href="/about">About Us</a>
+            </li>
+            <li>
+              <a href="/blogs">Blogs</a>
+            </li>
+            <li>
+              <a href="/enroll">Enroll with Froggy</a>
+            </li>
+          </ul>
+        </div>
 
-          <div className="footer-column">
-            <h3>Programs</h3>
-            <ul>
-              <li><Link to="/pre-study">Pre Study</Link></li>
-              <li><Link to="/hsc-prelim">HSC Prelim</Link></li>
-              <li><Link to="/hsc-trial">HSC/Trial</Link></li>
-            </ul>
-          </div>
+        {/* Programs Section */}
+        <div className="footer-section">
+          <h3>Programs</h3>
+          <ul>
+            <li>
+              <a href="/pre-kindy">Pre-Kindy</a>
+            </li>
+            <li>
+              <a href="/hsc-prelim">HSC Prelim</a>
+            </li>
+            <li>
+              <a href="/naplan">NAPLAN</a>
+            </li>
+          </ul>
+        </div>
 
-          <div className="footer-column">
-            <h3>Contact Us</h3>
-            <ul>
-              <li><a href="mailto:info@froggytuition.com.au">Email: info@froggytuition.com.au</a></li>
-              <li><a href="tel:+61293989989">Phone: (02) 9398 9989</a></li>
-              <li className="social-links">
-                <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
-              </li>
-            </ul>
-          </div>
+        {/* Contact Section */}
+        <div className="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li>
+              <a href="mailto:info@froggytuition.com.au">
+                Email: info@froggytuition.com.au
+              </a>
+            </li>
+            <li>
+              <a href="tel:(02)97939989">Phone: (02) 9793 9989</a>
+            </li>
+            <div className="social-icons">
+              <a href="#" className="social-icon">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="social-icon">
+                <Store size={20} />
+              </a>
+              <a href="#" className="social-icon">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="social-icon">
+                <Instagram size={20} />
+              </a>
+            </div>
+          </ul>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

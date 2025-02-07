@@ -1,140 +1,151 @@
-.enroll-section {
-    padding: 80px 0;
-    background-color: #FAFAFA;
-}
-
 .enroll-container {
-    max-width: 800px;
+    max-width: 724px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-.enroll-title {
+    padding: 32px 16px;
+  }
+  
+  .enroll-title {
     text-align: center;
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 40px;
-}
-
-.enroll-title .highlight {
-    color: #45B454;
-}
-
-.enroll-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-row {
+    font-size: 2.5rem;
+    margin-bottom: 48px;
+    font-weight: 600;
+  }
+  
+  .enroll-title span {
+    color: #22c55e;
+  }
+  
+  .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-group {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 1rem;
+    background: transparent;
+  }
+  
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-bottom-color: #22c55e;
+  }
+  
+  .form-field textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .help-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  
+  .file-upload {
+    border: 2px dashed #22c55e;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    margin: 24px 0;
+    cursor: pointer;
+  }
+  
+  .file-upload label {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 0;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    background: transparent;
-    font-size: 14px;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-    margin-bottom: 5px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #45B454;
-}
-
-.help-text {
-    font-size: 12px;
-    color: #45B454;
-}
-
-.grade-selection {
-    margin-top: 20px;
-}
-
-.grade-selection p {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.grade-label {
-    color: #45B454 !important;
+    align-items: center;
+    color: #22c55e;
+    cursor: pointer;
+  }
+  
+  .file-upload input[type="file"] {
+    display: none;
+  }
+  
+  .file-upload svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .file-upload .upload-text {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .grade-section {
+    margin: 32px 0;
+  }
+  
+  .grade-title {
     font-weight: 500;
-}
-
-.grade-options {
+    margin-bottom: 16px;
+  }
+  
+  .grade-subtitle {
+    color: #22c55e;
+    margin-bottom: 16px;
+  }
+  
+  .radio-group {
     display: flex;
-    gap: 40px;
-}
-
-.grade-options label {
+    gap: 32px;
+  }
+  
+  .radio-option {
     display: flex;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
-}
-
-.grade-options input[type="radio"] {
+  }
+  
+  .radio-option input[type="radio"] {
     width: 16px;
     height: 16px;
-    accent-color: #45B454;
-}
-
-.grade-options span {
-    font-size: 14px;
-    color: #333;
-}
-
-.submit-btn {
+    accent-color: #22c55e;
+  }
+  
+  .submit-button {
     width: 100%;
-    padding: 15px;
-    background-color: #45B454;
+    padding: 16px;
+    background-color: #22c55e;
     color: white;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
+    border-radius: 9999px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-.submit-btn:hover {
-    background-color: #3a9746;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #16a34a;
+  }
+  
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-
-    .grade-options {
-        flex-direction: column;
-        gap: 15px;
+  
+    .radio-group {
+      flex-direction: column;
+      gap: 16px;
     }
-
+  
     .enroll-title {
-        font-size: 28px;
+      font-size: 2rem;
     }
-} 
+  }

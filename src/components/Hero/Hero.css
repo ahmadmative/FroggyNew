@@ -3,14 +3,14 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(to bottom, #00523C 50%, #ffffff 50%);
-    padding: 30px 0;
 }
 
 .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+
+    
 }
 
 .hero-card {
@@ -18,13 +18,17 @@
     width: 100%;
     border-radius: 24px;
     overflow: hidden;
+    display: flex;
+    justify-content: end;
+    align-items: end;
 }
 
 .hero-image {
     padding-top: 100px;
-    width: 100%;
-    display: block;
     background: transparent;
+    display: flex;  
+    width: 90%;
+
 }
 
 .stats-bar {
