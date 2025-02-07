@@ -1,7 +1,8 @@
 import React from 'react';
 import './HolisticApproach.css';
-import defaultImage from '../../assets/expect1.png'; // Temporary image
-
+import defaultImage from '../../assets/u1.png'; // Temporary image
+import defaultImage2 from '../../assets/u2.png';
+import defaultImage3 from '../../assets/u3.png';
 const HolisticApproach = () => {
   const approaches = [
     "Small classes so you receive the attention you deserve",
@@ -34,11 +35,11 @@ const HolisticApproach = () => {
 
         <div className="image-grid">
           <div className="grid-item top">
-            <img src={defaultImage} alt="Student studying" />
+            <img src={defaultImage3} alt="Student studying" />
           </div>
           <div className="bottom-container">
             <div className="grid-item bottom-left">
-              <img src={defaultImage} alt="Library study" />
+              <img src={defaultImage2} alt="Library study" />
             </div>
             <div className="grid-item bottom-right">
               <img src={defaultImage} alt="Student research" />
