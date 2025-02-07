@@ -103,7 +103,7 @@
 }
 
 .card-header h3 {
-    color: #0D6B4E;
+    color: #151515;
     font-size: 22px;
     margin-bottom: 8px;
 }
@@ -180,21 +180,45 @@
     font-weight: bold;
 }
 
-.enroll-button {
-    width: 100%;
+.enroll-button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
     padding: 12px;
-    background: #45B454;
+    background: #349C4B;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.7s ease;
+    margin: 0 auto;
 }
 
-.enroll-button:hover {
-    background: #3a9746;
+.enroll-button2:hover {
+    background: white;
+    color: #349C4B ;
+    border: 2px solid  #349C4B;
+}
+
+.enroll-button1 {
+    width: 150px;
+    padding: 12px;
+    background: #349C4B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+}
+
+.enroll-button1:hover {
+    background: white;
+    color: #349C4B ;
 }
 
 /* Responsive Design */
@@ -252,104 +276,208 @@
     position: relative;
     background: #F8F8F8;
     border-radius: 12px;
-    padding: 20px;
+    padding: 30px 20px;
     overflow: hidden;
-    height: 180px; /* Reduced initial height */
-    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 320px; /* Adjusted initial height to fit button */
+    transition: all 0.7s ease;
 }
 
 .simple-card:hover {
-    height: 380px;
+    height: 580px; /* Adjusted expanded height */
+    transform: translateY(-5px);
 }
-
-.rotating-circles {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 80px; /* Increased size */
-    height: 80px; /* Increased size */
-}
-
-.rotating-circles .circle {
-    position: absolute;
-    width: 15px; /* Increased circle size */
-    height: 15px; /* Increased circle size */
-    border-radius: 50%;
-    background-color: rgba(69, 180, 84, 0.2);
-    transition: all 0.3s ease;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Initial circle positions - tighter grouping */
-.rotating-circles .circle:nth-child(1) { transform: translate(-50%, -50%); }
-.rotating-circles .circle:nth-child(2) { transform: translate(-50%, -50%); }
-.rotating-circles .circle:nth-child(3) { transform: translate(-50%, -50%); }
-.rotating-circles .circle:nth-child(4) { transform: translate(-50%, -50%); }
-
-/* Hover circle animations - spread out more */
-.simple-card:hover .rotating-circles .circle:nth-child(1) { transform: translate(-150%, -150%); }
-.simple-card:hover .rotating-circles .circle:nth-child(2) { transform: translate(50%, -150%); }
-.simple-card:hover .rotating-circles .circle:nth-child(3) { transform: translate(-150%, 50%); }
-.simple-card:hover .rotating-circles .circle:nth-child(4) { transform: translate(50%, 50%); }
 
 .card-content {
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.card-content .enroll-button {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(0);
-}
-
-.simple-card:hover .card-content .enroll-button {
-    transform: translateY(160px); /* Move button down on hover */
-}
-
-.hover-content {
-    position: absolute;
-    top: 80px; /* Position below title and price */
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: transparent;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.simple-card:hover .hover-content {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Update features list for hover state */
-.hover-content .features-list {
-    margin: 75px 0px 20px 0px;
-}
-
-.hover-content .features-list li {
-    display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-content h3 {
+    color: #161616;
+    font-size: 22px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.card-content p {
     color: #666;
     font-size: 14px;
+    margin-bottom: 15px;
 }
 
-.hover-content .check-icon {
-    color: #45B454;
+.price-simple {
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-bottom: 30px; /* Add space for button */
+}
+
+.price-simple::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: #E5E5E5;
+}
+
+.price-simple .dollar {
+    font-size: 20px;
+    vertical-align: top;
+    color: #333;
+}
+
+.price-simple .amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-simple .period {
+    color: #666;
     font-size: 16px;
 }
 
-/* Remove duplicate button from hover content */
-.hover-content .enroll-button {
+/* Features list styles */
+.features-list-simple {
     display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 1s ease;
+    margin: 20px 0;
+    width: 100%; /* Full width for proper alignment */
+    padding: 0 15px; /* Add some padding */
+}
+
+/* Button styles for both states */
+.simple-card .enroll-button {
+    width: 80%;
+    padding: 15px; /* Slightly taller button */
+    background: #286931;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 1s ease;
+    margin-top: 20px; /* Space from price line */
+}
+
+.simple-card:hover .enroll-button {
+    margin-top: auto; /* Push to bottom when expanded */
+    margin-bottom: 20px; /* Space from bottom edge */
+}
+
+/* Adjust feature list spacing in hover state */
+.simple-card:hover .features-list-simple {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    margin: 30px 0; /* More space around features */
+}
+
+/* Adjust icon styles */
+.features-list-simple .icon {
+    width: 32px; /* Slightly larger icons */
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: #286931;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.features-list-simple .icon img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+}
+
+/* Adjust list item spacing */
+.features-list-simple li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px; /* More space between items */
+    color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left; /* Left align text */
+}
+
+.features-list-simple li:last-child {
+    margin-bottom: 30px; /* Space before button */
+}
+
+/* Update rotating circles for animation */
+.rotating-circles {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+}
+
+.rotating-circles .circle {
+    position: absolute;
+    width: 30px; /* Larger initial circle */
+    height: 30px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    transition: all 0.8s ease;
+}
+
+/* Initial state - single circle */
+.rotating-circles .circle:nth-child(1) { 
+    top: 0;
+    right: 0;
+    background-color: #0D6B4E;
+}
+.rotating-circles .circle:nth-child(2),
+.rotating-circles .circle:nth-child(3),
+.rotating-circles .circle:nth-child(4) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Hover state - four circles */
+.simple-card:hover .rotating-circles .circle {
+    width: 15px;
+    height: 15px;
+}
+
+.simple-card:hover .rotating-circles .circle:nth-child(1) { 
+    top: 0;
+    right: 0;
+    transform: scale(2);
+}
+.simple-card:hover .rotating-circles .circle:nth-child(2) { 
+    top: 0;
+    right: 40px;
+    opacity: 1;
+    transform: scale(2);
+}
+.simple-card:hover .rotating-circles .circle:nth-child(3) { 
+    top: 40px;
+    right: 0;
+    opacity: 1;
+    transform: scale(2);
+}
+.simple-card:hover .rotating-circles .circle:nth-child(4) { 
+    top: 40px;
+    right: 40px;
+    opacity: 1;
+    transform: scale(2);
 }
 
 /* Update responsive styles */

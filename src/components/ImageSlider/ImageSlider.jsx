@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
 import './ImageSlider.css';
-import imageDrafted from '../../assets/imagedrafted.png';
+import englishStandard from '../../assets/English Standard.mp4';
+import englishAdvanced from '../../assets/English Advanced.mp4';
+import mathsStandard from '../../assets/Maths Standard.mp4';
+import sorII from '../../assets/SOR II.mp4';
+import biology from '../../assets/Biology.mp4';
+import businessStudies from '../../assets/Business Studies.mp4';
 
 const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
 
   const slides = [
     {
-      image: imageDrafted,
-      alt: 'Drafted'
+      video: englishStandard,
+      alt: 'English Standard'
     },
-    // Add more slides as needed
+    {
+      video: englishAdvanced,
+      alt: 'English Advanced'
+    },
+    {
+      video: mathsStandard,
+      alt: 'Maths Standard'
+    },
+    {
+      video: sorII,
+      alt: 'SOR II'
+    },
+    {
+      video: biology,
+      alt: 'Biology'
+    },
+    {
+      video: businessStudies,
+      alt: 'Business Studies'
+    }
   ];
 
   const nextSlide = () => {
@@ -23,50 +45,30 @@ const ImageSlider = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
-  const handleTouchStart = (e) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-        nextSlide();
-    }
-    if (isRightSwipe) {
-        prevSlide();
-    }
-
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
   return (
     <section className="slider-section">
       <div className="slider-container">
-        <button className="nav-button prev" onClick={prevSlide}>
+        <button className="nav-button1 prev" onClick={prevSlide}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         
-        <div className="slider-content" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-          <img 
-            src={slides[currentSlide].image} 
-            alt={slides[currentSlide].alt}
-            className="slider-image"
-          />
+        <div className="slider-content">
+          <video 
+            key={currentSlide}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="slider-video"
+          >
+            <source src={slides[currentSlide].video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
-        <button className="nav-button next" onClick={nextSlide}>
+        <button className="nav-button1 next" onClick={nextSlide}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>

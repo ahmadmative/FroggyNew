@@ -1,5 +1,9 @@
 import React from 'react';
 import './SeniorLeapClasses.css';
+import clockIcon from '../../assets/clock-i.png';
+import checkIcon from '../../assets/guard-i.png';
+import chatIcon from '../../assets/chat-i.png';
+import studyIcon from '../../assets/diomand-i.png';
 
 const SeniorLeapClasses = () => {
   const classesData = [
@@ -140,7 +144,7 @@ const SeniorLeapClasses = () => {
                 ))}
               </ul>
 
-              <button className="enroll-button">Enrol now!</button>
+              <button className="enroll-button2">Enrol now!</button>
             </div>
           ))}
         </div>
@@ -164,18 +168,35 @@ const SeniorLeapClasses = () => {
                     <span className="amount">{classItem.price}</span>
                     <span className="period">/ week</span>
                   </div>
-                  <button className="enroll-button">Enrol now!</button>
-                </div>
-                <div className="hover-content">
-                  <ul className="features-list">
-                    {classItem.features.map((feature, idx) => (
-                      <li key={idx}>
-                        <span className="check-icon">✓</span>
-                        {feature}
-                      </li>
-                    ))}
+                  
+                  <ul className="features-list-simple">
+                    <li>
+                      <span className="icon">
+                        <img src={clockIcon} alt="time" />
+                      </span>
+                      Saturday 11:15-12:45
+                    </li>
+                    <li>
+                      <span className="icon">
+                        <img src={checkIcon} alt="check" />
+                      </span>
+                      Syllabus aligned Standard & Advanced
+                    </li>
+                    <li>
+                      <span className="icon">
+                        <img src={chatIcon} alt="chat" />
+                      </span>
+                      Access to group chats with specialised tutors
+                    </li>
+                    <li>
+                      <span className="icon">
+                        <img src={studyIcon} alt="study" />
+                      </span>
+                      Free study space all day Saturday
+                    </li>
                   </ul>
-                  <button className="enroll-button">Enrol now!</button>
+                  
+                  <button className="enroll-button1">Enrol now!</button>
                 </div>
               </div>
             ))}

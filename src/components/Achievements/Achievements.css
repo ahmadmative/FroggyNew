@@ -19,8 +19,8 @@
 .achievement-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    max-width: 100%;
+    gap: 0px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -80,9 +80,25 @@
     transform: rotateX(180deg);
     background: #00523C;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #F3ECDC;
+}
+
+.card-back h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-style: italic;
+    color: #F3ECDC;
+}
+
+.card-back p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .card-wrapper {
@@ -95,7 +111,7 @@
 
 .card-wrapper img {
     width: auto;
-    height: 120%;
+    height: 100%;
     object-fit: cover;
     display: block;
     vertical-align: center;

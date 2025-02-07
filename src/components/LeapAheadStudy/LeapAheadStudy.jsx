@@ -3,8 +3,17 @@ import './LeapAheadStudy.css';
 import questionMark from '../../assets/LeapAheadStudy/questionmark.png';
 import cloud from '../../assets/LeapAheadStudy/cloud.png';
 import froggyLogo from '../../assets/LeapAheadStudy/froggylogo.png';
-import studyImage from '../../assets/leap1.png';
+import studyImage from '../../assets/study1.png';
 import placeholderIcon from '../../assets/Hero-Circles.png';
+import diamondIcon from '../../assets/diomand1.png';
+import leapIcon1 from '../../assets/leapIcon1.png';
+import leapIcon2 from '../../assets/leapIcon2.png';
+import leapIcon3 from '../../assets/leapIcon3.png';
+import leapIcon4 from '../../assets/leapIcon4.png';
+import leapIcon5 from '../../assets/leapIcon5.png';
+import leapIcon6 from '../../assets/leapIcon6.png';
+import leapIcon7 from '../../assets/leapIcon7.png';
+import leapIcon8 from '../../assets/leapIcon8.png';
 // import { BiTime } from 'react-icons/bi';
 // import { BsCalendar2Week, BsShieldCheck } from 'react-icons/bs';
 // import { FiFileText } from 'react-icons/fi';
@@ -44,14 +53,38 @@ const LeapAheadStudy = () => {
   ];
 
   const studySkills = [
-    "Critical time management skills",
-    "How to develop an effective study routine",
-    "How to block out distractions",
-    "Step by step guide how to make your own revision notes",
-    "How to retain information for exam day and beyond",
-    "What to do on exam day to ensure you don't freak out",
-    "How to make the most of past papers and resources",
-    "How to defeat procrastination once & for all!"
+    {
+      text: "Critical time management skills",
+      icon: leapIcon1
+    },
+    {
+      text: "How to develop an effective study routine",
+      icon: leapIcon2
+    },
+    {
+      text: "How to block out distractions",
+      icon: leapIcon3
+    },
+    {
+      text: "Step by step guide how to make your own revision notes",
+      icon: leapIcon4
+    },
+    {
+      text: "How to retain information for exam day and beyond",
+      icon: leapIcon5
+    },
+    {
+      text: "What to do on exam day to ensure you don't freak out",
+      icon: leapIcon6
+    },
+    {
+      text: "How to make the most of past papers and resources",
+      icon: leapIcon7
+    },
+    {
+      text: "How to defeat procrastination once & for all!",
+      icon: leapIcon8
+    }
   ];
 
   return (
@@ -110,6 +143,7 @@ const LeapAheadStudy = () => {
           <img src={studyImage} alt="Students studying" className="main-image" />
           <div className="award-badge">
             <div className="badge-content">
+              <img src={diamondIcon} alt="Diamond Award" className="diamond-icon" />
               <span className="number">#1</span>
               <span className="text">Best Award</span>
               <span className="year">2019</span>
@@ -125,9 +159,9 @@ const LeapAheadStudy = () => {
             {studySkills.map((skill, index) => (
               <li key={index}>
                 <span className="skill-icon">
-                  <img src={placeholderIcon} alt="skill icon" />
+                  <img src={skill.icon} alt={skill.text} />
                 </span>
-                <span className="skill-text">{skill}</span>
+                <span className="skill-text">{skill.text}</span>
               </li>
             ))}
           </ul>

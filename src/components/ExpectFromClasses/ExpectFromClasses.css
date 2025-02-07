@@ -26,7 +26,7 @@
 
 /* Tabs Container */
 .tabs-container {
-    flex: 1;
+    flex: 0 0 55%;
     height: 500px;
     display: flex;
     gap: 5px;
@@ -87,19 +87,22 @@
     height: 60px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 20px;
     color: white;
+    text-align: center;
 }
 
 .tab-title span {
     color: white;
     z-index: 1;
+    text-align: center;
 }
 
 /* Content Section with fade animation */
 .content-section {
     flex: 1;
-    padding: 20px 40px;
+    padding-left: 40px;
 }
 
 .content-section.fading {
@@ -245,40 +248,44 @@
     max-width: 600px;
 }
 
-.about-section h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 16px;
-}
-
-.expect-list h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 16px;
+.about-section h3,
+.expectations-section h3 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .about-section p {
-    color: #666;
+    margin-bottom: 20px;
     line-height: 1.6;
-    margin-bottom: 30px;
+    white-space: pre-line;
 }
 
-.expect-list ul {
-    list-style: none;
-    padding: 0;
+.expectations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.expect-list li {
+.expectation-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    color: #666;
+    gap: 15px;
 }
 
-.check-icon {
-    color: #45B454;
-    font-size: 18px;
+.expectation-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: rgba(0, 82, 60, 0.05);
+    box-sizing: content-box;
+}
+
+.expectation-item p {
+    margin: 0;
+    line-height: 1.4;
 }
 
 @media (max-width: 1024px) {
@@ -348,4 +355,60 @@
     .tab-title {
         font-size: 12px;
     }
+}
+
+/* Add these new styles for the subjects grid */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.subject-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.subject-icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 82, 60, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subject-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.subject-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Update the spacing for vertical tabs */
+.tabs-container {
+  flex: 0 0 55%;
+  height: 500px;
+  display: flex;
+  gap: 5px; 
+  position: relative;
+}
+
+.tab.vertical {
+  flex: 0.15;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+/* Ensure equal spacing between image and buttons */
+.tab:not(:first-child) {
+  margin-left: 5px; 
 } 

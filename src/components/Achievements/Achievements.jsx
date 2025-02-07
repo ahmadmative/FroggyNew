@@ -1,16 +1,38 @@
 import React from 'react';
 import './Achievements.css';
-import congratsImage from '../../assets/congratulations.png';
-import flipImage from '../../assets/flip.png';
+import congratsImage1 from '../../assets/1.png';
+import congratsImage2 from '../../assets/2.png';
+import congratsImage3 from '../../assets/3.png';
+import congratsImage4 from '../../assets/4.png';
+import congratsImage5 from '../../assets/5.png';
+import congratsImage6 from '../../assets/6.png';
 
 const Achievements = () => {
   const achievementCards = [
-    { front: congratsImage, back: flipImage },
-    { front: congratsImage, back: flipImage },
-    { front: congratsImage, back: flipImage },
-    { front: congratsImage, back: flipImage },
-    { front: congratsImage, back: flipImage },
-    { front: congratsImage, back: flipImage }
+    { 
+      front: congratsImage1, 
+      text: "Masha Allah this brother absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    },
+    { 
+      front: congratsImage2, 
+      text: "Masha Allah this sister absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    },
+    { 
+      front: congratsImage3, 
+      text: "Masha Allah this brother absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    },
+    { 
+      front: congratsImage4, 
+      text: "Masha Allah this brother absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    },
+    { 
+      front: congratsImage5, 
+      text: "Masha Allah this sister absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    },
+    { 
+      front: congratsImage6, 
+      text: "Masha Allah this brother absolutely wiped the floor with his ATAR, the rest of the state got nothing on him"
+    }
   ];
 
   return (
@@ -32,9 +54,8 @@ const Achievements = () => {
                       </div>
                     </div>
                     <div className="card-back">
-                      <div className="card-wrapper">
-                        <img src={card.back} alt={`Achievement Details ${index + 1}`} />
-                      </div>
+                      <h3>Congratulation!</h3>
+                      <p>{card.text}</p>
                     </div>
                   </div>
                 </div>
