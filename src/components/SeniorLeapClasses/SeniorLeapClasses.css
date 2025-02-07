@@ -4,9 +4,9 @@
 }
 
 .senior-leap-wrapper {
-    max-width: 1200px;
+    max-width: 85%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 .senior-leap-header {
@@ -28,7 +28,7 @@
 .classes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 60px;
 }
 
 .class-card {
@@ -36,7 +36,7 @@
     background: #F8F8F8;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     transition: transform 0.3s ease;
     overflow: hidden;
 }
@@ -114,7 +114,20 @@
 }
 
 .price-section {
-    margin-bottom: 20px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.price-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: #E5E5E5;
 }
 
 .dollar {
@@ -240,93 +253,103 @@
     background: #F8F8F8;
     border-radius: 12px;
     padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
     overflow: hidden;
+    height: 180px; /* Reduced initial height */
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .simple-card:hover {
-    transform: translateY(-5px);
+    height: 380px;
 }
 
-/* Single circle for simple cards */
-.simple-card::before {
-    content: '';
+.rotating-circles {
     position: absolute;
-    width: 24px;  /* Made circle larger */
-    height: 24px;
+    top: 20px;
+    right: 20px;
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+}
+
+.rotating-circles .circle {
+    position: absolute;
+    width: 15px; /* Increased circle size */
+    height: 15px; /* Increased circle size */
     border-radius: 50%;
-    top: 15px;
-    right: 15px;
-    z-index: 1;
-    opacity: 0.9;
+    background-color: rgba(69, 180, 84, 0.2);
+    transition: all 0.3s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Remove other circles */
-.simple-card::after,
-.simple-card .circle-1,
-.simple-card .circle-2 {
-    display: none;
-}
+/* Initial circle positions - tighter grouping */
+.rotating-circles .circle:nth-child(1) { transform: translate(-50%, -50%); }
+.rotating-circles .circle:nth-child(2) { transform: translate(-50%, -50%); }
+.rotating-circles .circle:nth-child(3) { transform: translate(-50%, -50%); }
+.rotating-circles .circle:nth-child(4) { transform: translate(-50%, -50%); }
 
-/* Individual circle colors */
-.simple-card:nth-child(1)::before {
-    background-color: #FFD699; /* Biology */
-}
+/* Hover circle animations - spread out more */
+.simple-card:hover .rotating-circles .circle:nth-child(1) { transform: translate(-150%, -150%); }
+.simple-card:hover .rotating-circles .circle:nth-child(2) { transform: translate(50%, -150%); }
+.simple-card:hover .rotating-circles .circle:nth-child(3) { transform: translate(-150%, 50%); }
+.simple-card:hover .rotating-circles .circle:nth-child(4) { transform: translate(50%, 50%); }
 
-.simple-card:nth-child(2)::before {
-    background-color: #45B454; /* Business Studies */
-}
-
-.simple-card:nth-child(3)::before {
-    background-color: #CCCCCC; /* SOR II */
-}
-
-.simple-card:nth-child(4)::before {
-    background-color: #B4E86C; /* Chemistry */
-}
-
-.simple-card:nth-child(5)::before {
-    background-color: #E5CCFF; /* Physics */
-}
-
-/* Ensure card content stays above the circles */
-.card-header, .price-section, .timing, .features-list, .enroll-button,
-.simple-card h3, .simple-card p, .price-simple, .simple-card .enroll-button {
+.card-content {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.simple-card h3 {
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 5px;
+.card-content .enroll-button {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
 }
 
-.simple-card p {
+.simple-card:hover .card-content .enroll-button {
+    transform: translateY(160px); /* Move button down on hover */
+}
+
+.hover-content {
+    position: absolute;
+    top: 80px; /* Position below title and price */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.simple-card:hover .hover-content {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Update features list for hover state */
+.hover-content .features-list {
+    margin: 75px 0px 20px 0px;
+}
+
+.hover-content .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
     color: #666;
     font-size: 14px;
-    margin-bottom: 15px;
 }
 
-.price-simple {
-    margin: 15px 0;
-}
-
-.price-simple .dollar {
+.hover-content .check-icon {
+    color: #45B454;
     font-size: 16px;
-    vertical-align: top;
 }
 
-.price-simple .amount {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.price-simple .period {
-    font-size: 14px;
-    color: #666;
+/* Remove duplicate button from hover content */
+.hover-content .enroll-button {
+    display: none;
 }
 
 /* Update responsive styles */

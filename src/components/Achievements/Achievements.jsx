@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Achievements.css';
 import congratsImage from '../../assets/congratulations.png';
 import flipImage from '../../assets/flip.png';
@@ -13,29 +13,18 @@ const Achievements = () => {
     { front: congratsImage, back: flipImage }
   ];
 
-  const [flippedCards, setFlippedCards] = useState(new Array(achievementCards.length).fill(false));
-
-  const handleCardFlip = (index) => {
-    const newFlippedCards = [...flippedCards];
-    newFlippedCards[index] = !newFlippedCards[index];
-    setFlippedCards(newFlippedCards);
-  };
-
   return (
     <section className="achievements-section">
       <div className="achievements-wrapper">
-        <h2 className="achievements-title">OUR ACHIEVEMENT BOARD</h2>
+        <h2 className="achievements-title">Our Achievement Board</h2>
         <div className="achievements-container">
           <div className="achievement-grid">
             {achievementCards.map((card, index) => (
               <div 
                 key={index} 
-                className="achievement-card-container"
+                className={`achievement-card-container ${index % 3 === 1 ? 'middle-column' : ''}`}
               >
-                <div 
-                  className={`achievement-card ${flippedCards[index] ? 'flipped' : ''}`}
-                  onClick={() => handleCardFlip(index)}
-                >
+                <div className="achievement-card">
                   <div className="card-inner">
                     <div className="card-front">
                       <div className="card-wrapper">

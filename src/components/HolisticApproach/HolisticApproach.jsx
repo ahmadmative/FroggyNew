@@ -1,6 +1,6 @@
 import React from 'react';
 import './HolisticApproach.css';
-import defaultImage from '../../assets/classesimg1.png'; // Temporary image
+import defaultImage from '../../assets/expect1.png'; // Temporary image
 
 const HolisticApproach = () => {
   const approaches = [

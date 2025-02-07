@@ -1,91 +1,87 @@
 import React, { useState } from 'react';
 import './ExpectFromClasses.css';
-import expectImage1 from '../../assets/classesimg1.png';
-import expectImage2 from '../../assets/ExpectImage2.jpg';
-import expectImage3 from '../../assets/ExpectImage3.jpg';
+import expect1 from '../../assets/expect1.png';
+import expect2 from '../../assets/expect2.jpg';
+import expect3 from '../../assets/expect3.jpg';
 
 const ExpectFromClasses = () => {
-  const [activeImage, setActiveImage] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const handleBarClick = (imageNumber) => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setActiveImage(imageNumber);
-      setTimeout(() => setIsAnimating(false), 500);
+  const tabsData = [
+    {
+      title: "Monday English and Maths: Prelim | HSC",
+      image: expect1,
+      color: "#00523C", // Dark green from image
+      content: {
+        about: "The nuts and bolts of Leap Tuition, Mondays serve to supercharge our Year 11 and 12 Legends in English and Maths. You can select one or both subjects when enrolling. All classes are sorted by grade and subject, with Standard and Advanced streams running simultaneously in separate classrooms to ensure robust, efficient learning.",
+        expectations: [
+          "To fill in content gaps",
+          "Complete syllabus content coverage",
+          "Course notes",
+          "Strategic advantage over peers with world-class tuition",
+          "Mentoring"
+        ]
+      }
+    },
+    {
+      title: "Super Saturday Prelim | HSC Classes",
+      image: expect2,
+      color: "#45B454", // Light green from image
+      content: {
+        about: "Content for Super Saturday...",
+        expectations: []
+      }
+    },
+    {
+      title: "Custom Prelim & HSC 1-on-1 ($85/hr)",
+      image: expect3,
+      color: "#697A76", // Gray from image
+      content: {
+        about: "Content for Custom classes...",
+        expectations: []
+      }
     }
-  };
+  ];
 
   return (
     <section className="expect-section">
       <div className="expect-wrapper">
-        <h2 className="main-title">What to <span>expect</span> from our classes</h2>
-        <div className="expect-content">
-          <div className="left-content">
-            <div className="class-container">
-              <div className="image-wrapper">
-                <div className={`image-slider ${isAnimating ? 'animating' : ''}`}>
-                  <img 
-                    className={`slider-image ${activeImage === 1 ? 'active' : ''}`}
-                    src={expectImage1} 
-                    alt="Students studying together" 
-                  />
-                  <img 
-                    className={`slider-image ${activeImage === 2 ? 'active' : ''}`}
-                    src={expectImage2} 
-                    alt="Super Saturday class" 
-                  />
-                  <img 
-                    className={`slider-image ${activeImage === 3 ? 'active' : ''}`}
-                    src={expectImage3} 
-                    alt="Custom class" 
-                  />
-                </div>
-                <div className="image-label">
-                  {activeImage === 1 && 'Monday English and Maths: Prelim | HSC'}
-                  {activeImage === 2 && 'Super Saturday Prelim | HSC Classes'}
-                  {activeImage === 3 && 'Custom Prelim & HSC 1-on-1 ($85/hr)'}
-                </div>
+        <h2 className="section-title">What to <span>expect</span> from our classes</h2>
+        
+        <div className="content-container">
+          {/* Left Side - Tabs */}
+          <div className="tabs-container">
+            {tabsData.map((tab, index) => (
+              <div
+                key={index}
+                className={`tab ${activeTab === index ? 'active' : 'vertical'}`}
+                onClick={() => setActiveTab(index)}
+                style={activeTab !== index ? { backgroundColor: tab.color } : {}}
+              >
+                {activeTab === index ? (
+                  // Active tab with image and title
+                  <div className="active-tab-content">
+                    <img src={tab.image} alt={tab.title} />
+                    <div 
+                      className="tab-title"
+                      style={{ backgroundColor: tab.color }}
+                    >
+                      <span>{tab.title}</span>
+                    </div>
+                  </div>
+                ) : (
+                  // Vertical tab with just title
+                  <div className="vertical-tab-content">
+                    {tab.title}
+                  </div>
+                )}
               </div>
-              <div className="course-buttons">
-                <div 
-                  className={`course-btn monday ${activeImage === 1 ? 'active' : ''}`}
-                  onClick={() => handleBarClick(1)}
-                >
-                  <span>Monday English and Maths: Prelim | HSC</span>
-                </div>
-                <div 
-                  className={`course-btn saturday ${activeImage === 2 ? 'active' : ''}`}
-                  onClick={() => handleBarClick(2)}
-                >
-                  <span>Super Saturday Prelim | HSC Classes</span>
-                </div>
-                <div 
-                  className={`course-btn custom ${activeImage === 3 ? 'active' : ''}`}
-                  onClick={() => handleBarClick(3)}
-                >
-                  <span>Custom Prelim & HSC 1-on-1 ($85/hr)</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="right-content">
-            <div className="about-section">
-              <h3>About</h3>
-              <p>The nuts and bolts of Leap Tuition Mondays serve to supercharge our Year 11 and 12 legends in English and Maths. You can select one or both subjects when enrolling. All classes are sorted by ability and capped at 15 students. We have designed our classrooms to ensure robust, efficient learning.</p>
-            </div>
-
-            <div className="expect-list">
-              <h3>What to expect</h3>
-              <ul>
-                <li>To fill in content gaps</li>
-                <li>Complete syllabus content coverage</li>
-                <li>Course notes</li>
-                <li>Strategic advantage over peers with world-class tuition</li>
-                <li>Mentoring</li>
-              </ul>
-            </div>
+          {/* Right Side - Content */}
+          <div className="content-section">
+            {tabsData[activeTab].content.about}
           </div>
         </div>
       </div>

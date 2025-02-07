@@ -32,14 +32,18 @@
 .timeline {
     position: relative;
     padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
 }
 
 .timeline-line {
     position: absolute;
-    top: 22px;
+    top: 25px;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 1px;
     background-color: #45B454;
     z-index: 1;
 }
@@ -47,9 +51,8 @@
 .timeline-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 30px;
     position: relative;
-    margin-top: -22px;
 }
 
 .timeline-item {
@@ -61,10 +64,10 @@
 }
 
 .timeline-icon {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     background-color: white;
-    border: 3px solid #45B454;
+    border: 1px solid #45B454;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -72,17 +75,22 @@
     margin-bottom: 25px;
     position: relative;
     z-index: 2;
+    padding: 12px;
+}
+
+.timeline-icon img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
 }
 
 .timeline-text {
-    margin-top: 20px;
     color: #666;
-    line-height: 1.5;
-    font-size: 14px;
+    line-height: 1.6;
+    font-size: 16px;
     max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    margin: 20px auto 0;
+    text-align: center;
 }
 
 @media (max-width: 992px) {
@@ -90,8 +98,15 @@
         gap: 20px;
     }
     
+    .timeline-icon {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+    }
+    
     .timeline-text {
         font-size: 14px;
+        max-width: 250px;
     }
 }
 
@@ -103,6 +118,11 @@
 
     .timeline-line {
         display: none;
+    }
+    
+    .timeline-icon {
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -198,5 +218,369 @@
         font-size: 20px;
         bottom: -10px;
         right: -10px;
+    }
+}
+
+.leap-ahead {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.leap-ahead-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+h2 {
+    font-size: 42px;
+    color: #333;
+    line-height: 1.2;
+    margin: 0;
+}
+
+h2 span {
+    color: #45B454;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #666;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-top: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #45B454;
+    z-index: 0;
+}
+
+.timeline-item {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+    padding: 0px 20px;
+    max-width: 350px;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.icon-wrapper {
+    position: relative;
+    height: 60px;
+    margin:0px 0px 40px 0px;
+}
+
+.icon-container {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 3px solid #45B454;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+    box-shadow: 0 0 0 10px white;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
+}
+
+.content {
+    text-align: left;
+}
+
+.content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #666;
+  
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.highlight-heading {
+    font-size: 17px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.highlight-heading1 {
+    font-size: 17px;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .timeline {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .timeline-line {
+        width: 2px;
+        height: 100%;
+        left: 30px;
+        top: 0;
+    }
+
+    .timeline-item {
+        padding-left: 80px;
+        margin-bottom: 40px;
+        max-width: none;
+    }
+
+    .icon-wrapper {
+        position: absolute;
+        left: 0;
+    }
+
+    .icon-container {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+}
+
+.study-system {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.study-image-section {
+    flex: 1;
+    position: relative;
+    max-width: 500px;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.award-badge {
+    position: absolute;
+    bottom: 50px;
+    right: -70px;
+    width: 160px;
+    height: 160px;
+    background: #00523C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 6px solid white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.badge-content {
+    text-align: center;
+}
+
+.badge-content .number {
+    font-size: 42px;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-content .text {
+    font-size: 16px;
+    display: block;
+    margin: 2px 0;
+}
+
+.badge-content .year {
+    font-size: 16px;
+    display: block;
+}
+
+.study-content {
+    flex: 1;
+    padding-top: 20px;
+}
+
+.study-content h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+
+}
+
+.study-content h2 span {
+    color: #999;
+    
+}
+
+.study-content h3 {
+    font-size: 28px;
+    color: #999;
+    margin: 10px 0 50px 0;
+    font-weight: normal;
+}
+
+.study-skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.study-skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 3px;
+}
+
+.skill-icon {
+    width: 32px;
+    height: 32px;
+    background: #F5F5F5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.skill-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.skill-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .study-system {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .study-image-section {
+        max-width: 100%;
+    }
+
+    .award-badge {
+        width: 120px;
+        height: 120px;
+        bottom: -30px;
+        right: -30px;
+        border-width: 5px;
+    }
+
+    .badge-content .number {
+        font-size: 36px;
+    }
+
+    .study-content h2 {
+        font-size: 42px;
+    }
+
+    .study-content h3 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .award-badge {
+        width: 100px;
+        height: 100px;
+        bottom: -25px;
+        right: -25px;
+        border-width: 4px;
+    }
+
+    .badge-content .number {
+        font-size: 30px;
+    }
+
+    .badge-content .text,
+    .badge-content .year {
+        font-size: 14px;
+    }
+
+    .study-content h2 {
+        font-size: 36px;
+    }
+
+    .study-content h3 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .skill-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .skill-icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .skill-text {
+        font-size: 14px;
     }
 } 

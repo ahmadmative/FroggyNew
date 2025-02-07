@@ -1,40 +1,37 @@
 .achievements-section {
-    background-color: rgb(247, 242, 242);
-    padding: 80px 0;
-    width: 100%;
+    padding: 40px 0;
+    background-color: #fff;
 }
 
 .achievements-wrapper {
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .achievements-title {
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 400;
     color: #333;
-    margin-bottom: 60px;
-    letter-spacing: 1px;
-}
-
-.achievements-container {
-    width: 100%;
+    margin-bottom: 10px;
 }
 
 .achievement-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
+    gap: 5px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
 .achievement-card-container {
     position: relative;
-    height: 0;
-    padding-bottom: 100%; /* Creates a square aspect ratio */
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.middle-column {
+    transform: translateY(25px);
 }
 
 .achievement-card {
@@ -43,13 +40,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.achievement-card:nth-child(2),
-.achievement-card:nth-child(5) {
-    transform: translateY(40px);
+    perspective: 1500px;
+    background: transparent;
 }
 
 .card-inner {
@@ -57,112 +49,98 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
 
-.achievement-card.flipped .card-inner {
-    transform: rotateY(180deg);
+.achievement-card:hover .card-inner {
+    transform: rotateX(180deg);
 }
 
 .card-front,
 .card-back {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* For Safari */
+    -webkit-backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: transparent;
+}
+
+.card-front {
+    background: transparent;
 }
 
 .card-back {
-    transform: rotateY(180deg);
-    background: white;
-}
-
-.card-wrapper {
-    width: 100%;
-    height: 100%;
+    transform: rotateX(180deg);
+    background: #00523C;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    padding: 30px;
+}
+
+.card-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
 }
 
 .card-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    max-width: 350px;
+    width: auto;
+    height: 120%;
+    object-fit: cover;
+    display: block;
+    vertical-align: center;
+    border-radius: 24px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
-    .achievement-grid {
-        max-width: 900px;
+    .achievements-wrapper {
+        width: 90%;
     }
     
-    .card-wrapper img {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 900px) {
     .achievement-grid {
-        padding: 0 15px;
-        gap: 15px;
-    }
-    
-    .card-wrapper img {
-        max-width: 250px;
+        gap: 12px;
     }
 }
 
 @media (max-width: 768px) {
     .achievements-section {
-        padding: 60px 0;
-    }
-
-    .achievement-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 600px;
-    }
-
-    .achievement-card:nth-child(2),
-    .achievement-card:nth-child(5) {
-        transform: translateY(0);
-    }
-
-    .card-wrapper img {
-        max-width: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .achievements-section {
         padding: 40px 0;
     }
 
     .achievement-grid {
-        grid-template-columns: 1fr;
-        max-width: 350px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .middle-column {
+        transform: translateY(0);
     }
 
     .achievements-title {
-        font-size: 12px;
+        font-size: 28px;
         margin-bottom: 40px;
-    }
-
-    .card-wrapper img {
-        max-width: 280px;
     }
 }
 
-@media (hover: hover) {
-    .achievement-card:hover .card-inner {
-        transform: scale(1.02);
+@media (max-width: 480px) {
+    .achievements-wrapper {
+        width: 95%;
     }
-    
-    .achievement-card.flipped:hover .card-inner {
-        transform: rotateY(180deg) scale(1.02);
+
+    .achievement-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }

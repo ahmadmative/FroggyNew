@@ -1,6 +1,6 @@
 .expect-section {
     padding: 80px 0;
-    background-color: #f8f9fa;
+    background: #F8F8F8;
 }
 
 .expect-wrapper {
@@ -9,22 +9,140 @@
     padding: 0 20px;
 }
 
-.main-title {
+.section-title {
     text-align: center;
+    font-size: 32px;
     margin-bottom: 40px;
-    font-size: 24px;
-    color: #333;
 }
 
-.main-title span {
+.section-title span {
     color: #45B454;
 }
 
-.expect-content {
-    display: grid;
-    grid-template-columns: minmax(auto, 600px) 1fr;
-    gap: 100px;
+.content-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Tabs Container */
+.tabs-container {
+    flex: 1;
+    height: 500px;
+    display: flex;
+    gap: 5px;
     position: relative;
+}
+
+/* Tab Styles */
+.tab {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Vertical Tab */
+.tab.vertical {
+    flex: 0.15;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+}
+
+.vertical-tab-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 17px;
+    padding: 20px 18px;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
+
+/* Active Tab */
+.tab.active {
+    flex: 1;
+}
+
+.active-tab-content {
+    height: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.active-tab-content img {
+    width: 100%;
+    height: calc(100% - 60px);
+    object-fit: cover;
+}
+
+.tab-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.tab-title span {
+    color: white;
+    z-index: 1;
+}
+
+/* Content Section with fade animation */
+.content-section {
+    flex: 1;
+    padding: 20px 40px;
+}
+
+.content-section.fading {
+    opacity: 0;
+}
+
+/* Animation Classes */
+.tab.vertical:nth-child(1) {
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab.vertical:nth-child(2) {
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab.vertical:nth-child(3) {
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add slide animations based on active tab */
+.tab.vertical:nth-child(1):not(.active) {
+    transform: translateX(-10px);
+}
+
+.tab.vertical:nth-child(3):not(.active) {
+    transform: translateX(10px);
+}
+
+.right-content {
+    flex: 1;
+    position: relative;
+}
+
+.content-fade {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.content-fade.fading {
+    opacity: 0;
 }
 
 /* Left side container */
@@ -128,55 +246,70 @@
 }
 
 .about-section h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .expect-list h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .about-section p {
     color: #666;
     line-height: 1.6;
-    font-size: 15px;
+    margin-bottom: 30px;
 }
 
 .expect-list ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
 }
 
 .expect-list li {
-    color: #666;
-    font-size: 15px;
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 12px;
+    color: #666;
 }
 
-@media (max-width: 992px) {
-    .expect-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+.check-icon {
+    color: #45B454;
+    font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+    .expect-wrapper {
+        padding: 0 20px;
     }
     
-    .right-content {
-        padding-left: 0;
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .tabs-container {
+        height: 400px;
     }
 }
 
 @media (max-width: 768px) {
     .expect-section {
         padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .tabs-container {
+        height: 350px;
+    }
+    
+    .content-section {
+        padding: 20px;
     }
     
     .image-wrapper {
@@ -200,5 +333,19 @@
     
     .left-content {
         padding-right: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs-container {
+        height: 300px;
+    }
+    
+    .vertical-tab-content {
+        font-size: 12px;
+    }
+    
+    .tab-title {
+        font-size: 12px;
     }
 } 

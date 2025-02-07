@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './StudentTestimonials.css';
-import defaultImage from '../../assets/classesimg1.png';
+import defaultImage from '../../assets/expect1.png';
 
 const StudentTestimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

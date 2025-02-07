@@ -1,157 +1,381 @@
-import React, { useEffect, useState } from "react";
-import "./Subjects.css";
-
-const TimelineItem = ({ text, date }) => (
-  <div className="timeline-item">
-    <div className="timeline-dot"></div>
-    <div className="timeline-content">
-      <p>{text}</p>
-      <span className="timeline-date">{date}</span>
-    </div>
-  </div>
-);
-
-const SubjectCard = ({ subject, index, totalCards }) => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const calculateProgress = (element) => {
-      const rect = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const triggerPoint = viewportHeight * 0.2;
-      const distanceFromTrigger = rect.top - triggerPoint;
-
-      if (distanceFromTrigger < 0) {
-        return Math.min(
-          Math.abs(distanceFromTrigger) / (viewportHeight * 0.4),
-          1
-        );
-      }
-      return 0;
-    };
-
-    const handleScroll = () => {
-      const element = document.getElementById(`subject-${subject.id}`);
-      if (element) {
-        setScrollProgress(calculateProgress(element));
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [subject.id]);
-
-  const cardStyle = {
-    backgroundColor: subject.color,
-    transform:
-      scrollProgress > 0
-        ? `translateY(${scrollProgress * 40}px) scale(${
-            1 - scrollProgress * 0.05
-          })`
-        : "none",
-    opacity: 1 - scrollProgress * 0.2,
-    marginTop:
-      index === 0
-        ? "0"
-        : scrollProgress > 0
-        ? `-${scrollProgress * 15}%`
-        : "40px",
-    zIndex: index + 1,
-  };
-
-  return (
-    <div
-      id={`subject-${subject.id}`}
-      className={`subject-card ${scrollProgress > 0 ? "sticky" : ""}`}
-      style={cardStyle}
-    >
-      <div className="subject-header">
-        <h3>{subject.title}</h3>
-        <p className="quote">{subject.quote}</p>
-        <p className="author">{subject.author}</p>
-        <button className="view-more">View more</button>
-      </div>
-
-      <div className="subject-timeline">
-        {subject.modules.map((module, idx) => (
-          <TimelineItem key={idx} {...module} />
-        ))}
-      </div>
-    </div>
-  );
-};
+import React from 'react';
+import './Subjects.css';
+import quoteIcon from '../../assets/quote.png';
 
 const Subjects = () => {
-  const subjects = [
-    {
-      id: "prelim-english",
-      title: "Prelim English",
-      quote:
-        '"All that is gold does not glitter, Not all those who wander are lost."',
-      author: "- J.R.R Tolkien",
-      modules: [
-        {
-          text: "English Standard Common Module: Reading to Write",
-          date: "Term 1, 2024",
-        },
-        {
-          text: "English Standard Module A: Contemporary Possibilities",
-          date: "Term 2, 2024",
-        },
-        {
-          text: "English Standard Module B: A Close Study of Literature",
-          date: "Term 3, 2024",
-        },
-      ],
-      color: "#1B4D3E",
-    },
-    {
-      id: "biology",
-      title: "Biology",
-      quote:
-        '"Those who contemplate the beauty of the earth find reserves of strength."',
-      author: "- Rachel Carson",
-      modules: [
-        { text: "Module 1: Cells as the basis of life", date: "Term 1, 2024" },
-        {
-          text: "Module 2: Organisation of living things",
-          date: "Term 2, 2024",
-        },
-        { text: "Module 3: Biological diversity", date: "Term 3, 2024" },
-      ],
-      color: "#E57373",
-    },
-    {
-      id: "hsc-mathematics",
-      title: "HSC Mathematics",
-      quote: '"The only way to learn mathematics is to do mathematics."',
-      author: "- Paul Halmos",
-      modules: [
-        {
-          text: "Module 1: Functions and their applications",
-          date: "Term 1, 2024",
-        },
-        { text: "Module 2: Trigonometric functions", date: "Term 2, 2024" },
-        {
-          text: "Module 3: Calculus and its applications",
-          date: "Term 3, 2024",
-        },
-      ],
-      color: "#F2AB49",
-    },
-  ];
-
   return (
     <section className="subjects-section">
-      <div className="subjects-container">
-        {subjects.map((subject, index) => (
-          <SubjectCard
-            key={subject.id}
-            subject={subject}
-            index={index}
-            totalCards={subjects.length}
-          />
-        ))}
+      <div className="subject-card subject-card-1">
+      
+        <div className="subject-content">
+          {/* Left Side */}
+          <div className="left-content">
+            <h2>Prelim English</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          {/* Right Side - Timeline */}
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-2">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>Biology</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-3">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>HSC Mathematics</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-4">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>Business Studies</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-5">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>Chemistry</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-6">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>Physics</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="subject-card subject-card-7">
+      
+        <div className="subject-content">
+          <div className="left-content">
+            <h2>Studies of Religion II</h2>
+            <div className="info-text">
+              <p>Did you know that Shakespeare invented over 1500 words?</p>
+            </div>
+            <div className="quote-text">
+              <p className="quote-line">'All that is gold does not glitter,</p>
+              <p className="quote-line">Not all those who wander are lost'</p>
+              <span className="author">~ J.R.R Tolkein</span>
+            </div>
+            <button className="enroll-button">Enroll now!</button>
+          </div>
+
+          <div className="tl-container">
+            <div className="tl-line"></div>
+            <div className="tl-items">
+              <div className="tl-item">
+                <span className="tl-date">Term 1, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Common Module: Reading to Write</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 2, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module A: Contemporary Possibilities</p>
+                </div>
+              </div>
+
+              <div className="tl-item">
+                <span className="tl-date">Term 3, 2025</span>
+                <div className="tl-dot">
+                  <img src={quoteIcon} alt="icon" />
+                </div>
+                <div className="tl-box">
+                  <p>English Standard Module B: A Close Study of Literature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
