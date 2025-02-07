@@ -5,7 +5,7 @@
 :root {
   --cards: 7;
   --cardHeight: 85vh;  /* Updated to match your design */
-  --cardTopPadding: 7em;
+  --cardTopPadding: 6em;
   --cardMargin: 0vw;
 }
 
@@ -49,7 +49,7 @@
 
 .left-content {
   flex: 0 0 45%;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .left-content h2 {

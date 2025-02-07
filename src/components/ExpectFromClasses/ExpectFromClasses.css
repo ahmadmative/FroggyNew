@@ -4,7 +4,7 @@
 }
 
 .expect-wrapper {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -45,6 +45,7 @@
 /* Vertical Tab */
 .tab.vertical {
     flex: 0.15;
+    align-items: center;
     writing-mode: vertical-lr;
     text-orientation: mixed;
 }
@@ -75,7 +76,7 @@
 
 .active-tab-content img {
     width: 100%;
-    height: calc(100% - 60px);
+    height: calc(100% - 10px);
     object-fit: cover;
 }
 

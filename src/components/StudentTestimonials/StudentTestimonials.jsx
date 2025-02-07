@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./StudentTestimonials.css";
 import defaultImage from "../../assets/expect1.png";
+import arrow from "../../assets/arrow.png";
+import arrow2 from "../../assets/arrows.png";
 
 const StudentTestimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,29 +10,19 @@ const StudentTestimonials = () => {
 
   const testimonials = [
     {
-      name: "Hannah Schmitt",
+      name: "Samaa",
       image: defaultImage,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+      text: " Alhamdullilah I benefited a lot from the tuition provided at Froggy. I would highly recommend to to anyone during their year 12 as they target specific HSC tactics and exam technique. I literally couldn't have done it without the lessons and support [Mr Emad] provided",
     },
     {
-      name: "John Smith",
+      name: "Mohamed Malas",
       image: defaultImage,
-      text: "Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
+      text: " The only tutoring centre you need. I’ve been to 4 centres in the past, and this is by far the most supportive, comprehensive and beneficial for my hsc journey, specifically Biology, Maths and English. Mr Emad and Mr Murad  have inspired me to work my hardest. I couldn’t recommend it more for any HSC students.",
     },
     {
-      name: "Sarah Johnson",
+      name: "Nia Lutfi",
       image: defaultImage,
-      text: "Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.",
-    },
-    {
-      name: "Mike Wilson",
-      image: defaultImage,
-      text: "Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      name: "Emma Davis",
-      image: defaultImage,
-      text: "Consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.",
+      text: " I study Maths/English/Biology/Business Studies at Leap, and it really is a one stop shop...The Yr 12 HSC intensive programs, crash courses and workshops are insanely beneficial... Such a dedicated team who work tirelessly day in day out for the betterment of our future leaders of the Ummah.",
     },
   ];
 
@@ -98,9 +90,7 @@ const StudentTestimonials = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="testimonial-card">
                 <div className="testimonial-content">
-                  <div className="student-image">
-                    <img src={testimonial.image} alt={testimonial.name} />
-                  </div>
+                 
                   <div className="testimonial-text">
                     <h3>{testimonial.name}</h3>
                     <p>{testimonial.text}</p>
@@ -136,6 +126,7 @@ const StudentTestimonials = () => {
             onClick={() => setCurrentSlide(index)}
           />
         ))}
+      
       </div>
     </section>
   );
