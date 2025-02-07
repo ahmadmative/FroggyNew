@@ -23,7 +23,7 @@
 
 .card {
   position: sticky;
-  top: 0vh; /* Updated to match your 25vh requirement */
+  top: -10vh; /* Updated to match your 25vh requirement */
   padding-top: calc(var(--index) * var(--cardTopPadding));
   width: 100%;
 }

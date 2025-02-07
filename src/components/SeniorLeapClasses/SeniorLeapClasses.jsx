@@ -1,11 +1,18 @@
-import React from 'react';
-import './SeniorLeapClasses.css';
-import clockIcon from '../../assets/clock-i.png';
-import checkIcon from '../../assets/guard-i.png';
-import chatIcon from '../../assets/chat-i.png';
-import studyIcon from '../../assets/diomand-i.png';
+import React from "react";
+import "./SeniorLeapClasses.css";
+import clockIcon from "../../assets/clock-i.png";
+import checkIcon from "../../assets/guard-i.png";
+import chatIcon from "../../assets/chat-i.png";
+import studyIcon from "../../assets/diomand-i.png";
 
 const SeniorLeapClasses = () => {
+  const timings = [
+    "Saturday 9:15-10:45",
+    "Saturday 11:15-12:45",
+    "Saturday 1:15-2:45",
+    "Saturday 3:15-4:45",
+    "Saturday 5:15-6:45",
+  ];
   const classesData = [
     {
       title: "HSC English",
@@ -15,8 +22,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "HSC Maths",
@@ -26,8 +33,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "Prelim English",
@@ -37,8 +44,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "Prelim Maths",
@@ -48,9 +55,9 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
-    }
+        "Free study space all day Saturday",
+      ],
+    },
   ];
 
   const additionalClasses = [
@@ -61,8 +68,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "Business Studies",
@@ -71,8 +78,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "SOR II",
@@ -81,8 +88,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "Chemistry",
@@ -91,8 +98,8 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
+        "Free study space all day Saturday",
+      ],
     },
     {
       title: "Physics",
@@ -101,9 +108,9 @@ const SeniorLeapClasses = () => {
       features: [
         "Syllabus aligned Standard & Advanced",
         "Access to group chats with specialized tutors",
-        "Free study space all day Saturday"
-      ]
-    }
+        "Free study space all day Saturday",
+      ],
+    },
   ];
 
   return (
@@ -113,7 +120,7 @@ const SeniorLeapClasses = () => {
           <h2>Senior Leap Classes</h2>
           <p>Monday HSC | Prelim</p>
         </div>
-        
+
         <div className="classes-grid">
           {classesData.map((classItem, index) => (
             <div key={index} className="class-card">
@@ -123,7 +130,7 @@ const SeniorLeapClasses = () => {
                 <h3>{classItem.title}</h3>
                 <p>{classItem.subtitle}</p>
               </div>
-              
+
               <div className="price-section">
                 <span className="dollar">$</span>
                 <span className="amount">{classItem.price}</span>
@@ -131,14 +138,26 @@ const SeniorLeapClasses = () => {
               </div>
 
               <div className="timing">
-                <span className="clock-icon">🕒</span>
+                <img src={clockIcon} alt="time" />
                 {classItem.timing}
               </div>
 
               <ul className="features-list">
                 {classItem.features.map((feature, idx) => (
                   <li key={idx}>
-                    <span className="check-icon">✓</span>
+                    {feature.includes("Syllabus") ? (
+                      <span className="">
+                        <img src={checkIcon} alt="check" />
+                      </span>
+                    ) : feature.includes("Access") ? (
+                      <span className="">
+                        <img src={chatIcon} alt="chat" />
+                      </span>
+                    ) : (
+                      <span className="">
+                        <img src={studyIcon} alt="study" />
+                      </span>
+                    )}
                     {feature}
                   </li>
                 ))}
@@ -168,34 +187,34 @@ const SeniorLeapClasses = () => {
                     <span className="amount">{classItem.price}</span>
                     <span className="period">/ week</span>
                   </div>
-                  
+
                   <ul className="features-list-simple">
                     <li>
-                      <span className="icon">
+                      <span className="">
                         <img src={clockIcon} alt="time" />
                       </span>
-                      Saturday 11:15-12:45
+                      {timings[index]}
                     </li>
                     <li>
-                      <span className="icon">
+                      <span className="">
                         <img src={checkIcon} alt="check" />
                       </span>
-                      Syllabus aligned Standard & Advanced
+                      100% Syllabus coverage for Prelim and HSC
                     </li>
                     <li>
-                      <span className="icon">
+                      <span className="">
                         <img src={chatIcon} alt="chat" />
                       </span>
                       Access to group chats with specialised tutors
                     </li>
                     <li>
-                      <span className="icon">
+                      <span className="">
                         <img src={studyIcon} alt="study" />
                       </span>
                       Free study space all day Saturday
                     </li>
                   </ul>
-                  
+
                   <button className="enroll-button1">Enrol now!</button>
                 </div>
               </div>
@@ -207,4 +226,4 @@ const SeniorLeapClasses = () => {
   );
 };
 
-export default SeniorLeapClasses; 
+export default SeniorLeapClasses;
